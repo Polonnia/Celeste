@@ -1,9 +1,9 @@
 # Ignore everything
 *
 
-# Don't ignore .cpp and .h files
-!*.cpp
-!*.h
+# Don't ignore .cpp and .h files in src directory
+!src/**/*.cpp
+!src/**/*.h
 
 # Don't ignore directories (needed to access .cpp and .h files)
 !*/
