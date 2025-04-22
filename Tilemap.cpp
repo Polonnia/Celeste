@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 #include <filesystem>
+#include <iostream>
 #include "../single_include/nlohmann/json.hpp"
 
 using json = nlohmann::json;
@@ -13,9 +14,12 @@ namespace fs = std::filesystem;
 bool load_tilemap(const char* levelName, Tilemap* tilemap)
 {
     std::string filename = "assets/levels/" + std::string(levelName) + ".tmj";
+    std::cout << "Attempting to load tilemap from: " << filename << std::endl;
+    
     std::ifstream file(filename);
     if (!file.is_open())
     {
+        std::cout << "Failed to open file: " << filename << std::endl;
         return false;
     }
 
@@ -24,78 +28,132 @@ bool load_tilemap(const char* levelName, Tilemap* tilemap)
     buffer << file.rdbuf();
     std::string content = buffer.str();
 
-    // 解析JSON
-    json root = json::parse(content);
+    try {
+        // 解析JSON
+        json root = json::parse(content);
+        std::cout << "Successfully parsed JSON" << std::endl;
 
-    // 获取地图基本信息
-    tilemap->width = root["width"].get<int>();
-    tilemap->height = root["height"].get<int>();
-    tilemap->tileSize = root["tilewidth"].get<float>();
+        // 获取地图基本信息
+        tilemap->width = root["width"].get<int>();
+        tilemap->height = root["height"].get<int>();
+        tilemap->tileSize = root["tilewidth"].get<float>();
+        std::cout << "Map dimensions: " << tilemap->width << "x" << tilemap->height 
+                  << ", tile size: " << tilemap->tileSize << std::endl;
 
-    // 加载图块集
-    const json& tilesets = root["tilesets"];
-    for (const json& tileset : tilesets)
-    {
-        Tileset ts;
-        ts.name = tileset["name"].get<std::string>();
-        ts.firstgid = tileset["firstgid"].get<int>();
-        ts.tileWidth = tileset["tilewidth"].get<int>();
-        ts.tileHeight = tileset["tileheight"].get<int>();
-        ts.tileCount = tileset["tilecount"].get<int>();
-        ts.columns = tileset["columns"].get<int>();
-
-        // 获取图片路径
-        std::string imagePath = tileset["image"].get<std::string>();
-        // 转换为相对路径
-        fs::path path(imagePath);
-        ts.imagePath = "assets/tiles/" + path.filename().string();
-
-        // 获取图片尺寸
-        ts.imageWidth = tileset["imagewidth"].get<int>();
-        ts.imageHeight = tileset["imageheight"].get<int>();
-
-        tilemap->tilesets.push_back(ts);
-    }
-
-    // 加载图层
-    const json& layers = root["layers"];
-    for (const json& layer : layers)
-    {
-        std::string layerName = layer["name"].get<std::string>();
-        const json& data = layer["data"];
-
-        // 创建对应层的数据
-        std::vector<std::vector<int>>& targetLayer = 
-            (layerName == "terrain") ? tilemap->terrain :
-            (layerName == "decorations") ? tilemap->decorations :
-            tilemap->spikes;
-
-        // 初始化层数据
-        targetLayer.resize(tilemap->height);
-        for (int y = 0; y < tilemap->height; y++)
+        // 加载图块集
+        const json& tilesets = root["tilesets"];
+        std::cout << "Found " << tilesets.size() << " tilesets" << std::endl;
+        
+        for (const json& tileset : tilesets)
         {
-            targetLayer[y].resize(tilemap->width);
-            for (int x = 0; x < tilemap->width; x++)
+            Tileset ts;
+            
+            // 只获取存在的字段
+            ts.firstgid = tileset["firstgid"].get<int>();
+            
+            // 获取source路径
+            std::string sourcePath = tileset["source"].get<std::string>();
+            std::cout << "Loading tileset from source: " << sourcePath << std::endl;
+            
+            // 设置默认值
+            ts.name = "tileset_" + std::to_string(ts.firstgid);
+            ts.tileWidth = root["tilewidth"].get<int>();
+            ts.tileHeight = root["tileheight"].get<int>();
+            ts.tileCount = 0; // 默认值
+            ts.columns = 0;   // 默认值
+            ts.imageWidth = 0; // 默认值
+            ts.imageHeight = 0; // 默认值
+            
+            // 加载.tsj文件
+            std::string tsjPath = "assets/tiles/" + sourcePath;
+            std::cout << "Loading .tsj file: " << tsjPath << std::endl;
+            
+            std::ifstream tsjFile(tsjPath);
+            if (tsjFile.is_open())
             {
-                int index = y * tilemap->width + x;
-                targetLayer[y][x] = data[index].get<int>();
+                std::stringstream tsjBuffer;
+                tsjBuffer << tsjFile.rdbuf();
+                std::string tsjContent = tsjBuffer.str();
+                
+                try {
+                    json tsjJson = json::parse(tsjContent);
+                    
+                    // 从.tsj文件中获取信息
+                    ts.name = tsjJson["name"].get<std::string>();
+                    ts.tileWidth = tsjJson["tilewidth"].get<int>();
+                    ts.tileHeight = tsjJson["tileheight"].get<int>();
+                    ts.tileCount = tsjJson["tilecount"].get<int>();
+                    ts.columns = tsjJson["columns"].get<int>();
+                    ts.imageWidth = tsjJson["imagewidth"].get<int>();
+                    ts.imageHeight = tsjJson["imageheight"].get<int>();
+                    
+                    // 获取图片路径
+                    std::string imageName = tsjJson["image"].get<std::string>();
+                    ts.imagePath = "assets/tiles/" + imageName;
+                    
+                    std::cout << "Loaded tileset: " << ts.name 
+                              << ", image: " << ts.imagePath 
+                              << ", size: " << ts.tileWidth << "x" << ts.tileHeight 
+                              << ", count: " << ts.tileCount << std::endl;
+                }
+                catch (const json::exception& e) {
+                    std::cout << "Error parsing .tsj file: " << e.what() << std::endl;
+                }
+            }
+            else
+            {
+                std::cout << "Failed to open .tsj file: " << tsjPath << std::endl;
+                
+                // 如果无法加载.tsj文件，使用默认值
+                fs::path path(sourcePath);
+                ts.imagePath = "assets/tiles/" + path.filename().string();
+                std::cout << "Using default image path: " << ts.imagePath << std::endl;
+            }
+            
+            tilemap->tilesets.push_back(ts);
+        }
+
+        // 加载图层
+        const json& layers = root["layers"];
+        std::cout << "Found " << layers.size() << " layers" << std::endl;
+        
+        for (const json& layer : layers)
+        {
+            std::string layerName = layer["name"].get<std::string>();
+            std::cout << "Processing layer: " << layerName << std::endl;
+            
+            const json& data = layer["data"];
+
+            // 创建对应层的数据
+            std::vector<std::vector<int>>& targetLayer = 
+                (layerName == "terrain") ? tilemap->terrain :
+                (layerName == "decorations") ? tilemap->decorations :
+                tilemap->spikes;
+
+            // 初始化层数据
+            targetLayer.resize(tilemap->height);
+            for (int y = 0; y < tilemap->height; y++)
+            {
+                targetLayer[y].resize(tilemap->width);
+                for (int x = 0; x < tilemap->width; x++)
+                {
+                    int index = y * tilemap->width + x;
+                    targetLayer[y][x] = data[index].get<int>();
+                }
             }
         }
-    }
 
-    // 加载地图属性
-    const json& properties = root["properties"];
-    if (properties.is_array())
-    {
-        for (const json& prop : properties)
-        {
-            std::string name = prop["name"].get<std::string>();
-            std::string value = prop["value"].get<std::string>();
-            tilemap->properties[name] = value;
-        }
+        std::cout << "Successfully loaded tilemap" << std::endl;
+        return true;
     }
-
-    return true;
+    catch (const json::exception& e) {
+        std::cout << "JSON parsing error: " << e.what() << std::endl;
+        return false;
+    }
+    catch (const std::exception& e) {
+        std::cout << "Error loading tilemap: " << e.what() << std::endl;
+        return false;
+    }
 }
 
 bool is_solid(const Tilemap* tilemap, float x, float y)

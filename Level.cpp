@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 Level::Level(const char* levelFile)
     : camera(nullptr)
@@ -13,6 +14,7 @@ Level::Level(const char* levelFile)
     
     // 加载关卡
     if (!load_tilemap(levelFile, &tilemap)) {
+        std::cout << "Failed to load tilemap: " << levelFile << std::endl;
         return;
     }
     
@@ -105,13 +107,57 @@ bool Level::checkWallCollision(const Vec2& position, const Vec2& size, float& de
 
 void Level::loadPlatforms()
 {
+    // 清除现有平台
+    platforms.clear();
+
     // 从tilemap的地形层创建平台
     for (int y = 0; y < tilemap.height; y++) {
         for (int x = 0; x < tilemap.width; x++) {
             if (y < tilemap.terrain.size() && x < tilemap.terrain[y].size() && tilemap.terrain[y][x] != 0) {
-                Vec2 pos(x * tilemap.tileSize, y * tilemap.tileSize);
-                Vec2 size(tilemap.tileSize, tilemap.tileSize);
-                platforms.emplace_back(pos, size);
+                // 检查这个位置是否已经被处理过
+                bool alreadyProcessed = false;
+                for (const auto& platform : platforms) {
+                    if (x * tilemap.tileSize >= platform.position.x && 
+                        x * tilemap.tileSize < platform.position.x + platform.size.x &&
+                        y * tilemap.tileSize >= platform.position.y && 
+                        y * tilemap.tileSize < platform.position.y + platform.size.y) {
+                        alreadyProcessed = true;
+                        break;
+                    }
+                }
+
+                if (!alreadyProcessed) {
+                    // 找到水平方向上连续的相同地形块
+                    int width = 1;
+                    while (x + width < tilemap.width && 
+                           y < tilemap.terrain.size() && 
+                           x + width < tilemap.terrain[y].size() && 
+                           tilemap.terrain[y][x + width] != 0) {
+                        width++;
+                    }
+
+                    // 找到垂直方向上连续的相同地形块
+                    int height = 1;
+                    bool canExtendDown = true;
+                    while (y + height < tilemap.height && canExtendDown) {
+                        for (int i = 0; i < width; i++) {
+                            if (y + height >= tilemap.terrain.size() || 
+                                x + i >= tilemap.terrain[y + height].size() || 
+                                tilemap.terrain[y + height][x + i] == 0) {
+                                canExtendDown = false;
+                                break;
+                            }
+                        }
+                        if (canExtendDown) {
+                            height++;
+                        }
+                    }
+
+                    // 创建合并后的平台
+                    Vec2 pos(x * tilemap.tileSize, y * tilemap.tileSize);
+                    Vec2 size(width * tilemap.tileSize, height * tilemap.tileSize);
+                    platforms.emplace_back(pos, size);
+                }
             }
         }
     }

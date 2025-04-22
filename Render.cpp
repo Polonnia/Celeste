@@ -30,12 +30,11 @@ void draw_tile(const Tilemap* tilemap, int tileID, float x, float y)
     const Tileset* tileset = nullptr;
     for (const auto& ts : tilemap->tilesets)
     {
-        std::cout << "Checking tileset with firstgid: " << ts.firstgid << ", tileCount: " << ts.tileCount << std::endl;
-        if (tileID >= ts.firstgid && tileID < ts.firstgid + ts.tileCount)
+        std::cout << "Checking tileset with firstgid: " << ts.firstgid << std::endl;
+        if (tileID >= ts.firstgid)
         {
+            // 找到最后一个匹配的tileset
             tileset = &ts;
-            std::cout << "Found matching tileset with image path: " << ts.imagePath << std::endl;
-            break;
         }
     }
 
@@ -48,7 +47,7 @@ void draw_tile(const Tilemap* tilemap, int tileID, float x, float y)
     if (loadedTilesets.find(tileset->imagePath) == loadedTilesets.end())
     {
         IMAGE* image = new IMAGE;
-        std::string fullPath = "assets/tiles/" + tileset->imagePath;
+        std::string fullPath = tileset->imagePath; // 直接使用完整路径
         std::cout << "Loading tileset image from: " << fullPath << std::endl;
         
         TCHAR imagePath[MAX_PATH];
@@ -57,10 +56,20 @@ void draw_tile(const Tilemap* tilemap, int tileID, float x, float y)
 #else
         strcpy_s(imagePath, fullPath.c_str());
 #endif
-        loadimage(image, imagePath, 0, 0, true);
+        
+        // 尝试加载图片
+        bool loadSuccess = false;
+        try {
+            loadimage(image, imagePath, 0, 0, true);
+            if (image->getwidth() > 0 && image->getheight() > 0) {
+                loadSuccess = true;
+            }
+        } catch (...) {
+            std::cout << "Exception while loading image: " << fullPath << std::endl;
+        }
         
         // 检查图片是否加载成功
-        if (image->getwidth() > 0 && image->getheight() > 0)
+        if (loadSuccess)
         {
             std::cout << "Successfully loaded image with dimensions: " << image->getwidth() << "x" << image->getheight() << std::endl;
             loadedTilesets[tileset->imagePath] = image;
@@ -75,14 +84,27 @@ void draw_tile(const Tilemap* tilemap, int tileID, float x, float y)
 
     // 计算图块在图块集中的位置
     int localID = tileID - tileset->firstgid;
-    int tileX = (localID % tileset->columns) * tileset->tileWidth;
-    int tileY = (localID / tileset->columns) * tileset->tileHeight;
+    
+    // 使用默认的tileWidth和tileHeight
+    int tileWidth = tileset->tileWidth;
+    int tileHeight = tileset->tileHeight;
+    
+    // 如果tileWidth或tileHeight为0，使用默认值
+    if (tileWidth <= 0) tileWidth = 8; // 使用地图的默认tilewidth
+    if (tileHeight <= 0) tileHeight = 8; // 使用地图的默认tileheight
+    
+    // 假设每个tileset有10列
+    int columns = 10;
+    if (tileset->columns > 0) columns = tileset->columns;
+    
+    int tileX = (localID % columns) * tileWidth;
+    int tileY = (localID / columns) * tileHeight;
 
     std::cout << "Rendering tile from position (" << tileX << ", " << tileY << ") in tileset" << std::endl;
 
     // 计算缩放后的尺寸
-    int scaledWidth = (int)(tileset->tileWidth * cameraScale);
-    int scaledHeight = (int)(tileset->tileHeight * cameraScale);
+    int scaledWidth = (int)(tileWidth * cameraScale);
+    int scaledHeight = (int)(tileHeight * cameraScale);
 
     // 渲染图块
     SetWorkingImage(NULL);

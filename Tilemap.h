@@ -26,7 +26,6 @@ struct Tilemap
     int width = 0;
     int height = 0;
     float tileSize = 16.0f;
-    std::map<std::string, std::string> properties; // 存储地图属性
     std::vector<Tileset> tilesets;  // 图块集列表
 };
 
