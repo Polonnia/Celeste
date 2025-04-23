@@ -10,7 +10,7 @@
 //                           Assets Structs
 // #############################################################################
 
-enum SpriteID
+enum class SpriteID
 {
   SPRITE_WHITE,
   SPRITE_DICE,

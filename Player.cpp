@@ -24,12 +24,12 @@ Player::Player(float x, float y)
     update_input();
     
     // Load sprites
-    idleSprite.load(SPRITE_CELESTE);
-    runSprite.load(SPRITE_CELESTE_RUN);
-    jumpSprite.load(SPRITE_CELESTE_JUMP);
-    dashSprite.load(SPRITE_CELESTE);
-    wallSlideSprite.load(SPRITE_CELESTE);
-    climbSprite.load(SPRITE_CELESTE);
+    idleSprite.load(SpriteID::SPRITE_CELESTE);
+    runSprite.load(SpriteID::SPRITE_CELESTE_RUN);
+    jumpSprite.load(SpriteID::SPRITE_CELESTE_JUMP);
+    dashSprite.load(SpriteID::SPRITE_CELESTE);
+    wallSlideSprite.load(SpriteID::SPRITE_CELESTE);
+    climbSprite.load(SpriteID::SPRITE_CELESTE);
 }
 
 Player::~Player() {

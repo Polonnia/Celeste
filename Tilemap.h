@@ -5,38 +5,31 @@
 #include <string>
 #include <map>
 
-struct Tileset
-{
-    std::string name;
+struct ParallaxBackground {
     std::string imagePath;
-    int firstgid;  // 第一个图块的全局ID
-    int tileWidth;
-    int tileHeight;
-    int imageWidth;
-    int imageHeight;
-    int columns;
-    int tileCount;
+    float parallaxFactor; // 视差系数，值越小移动越慢
+    float offsetX;        // 当前偏移量
 };
 
 struct Tilemap
 {
-    std::vector<std::vector<int>> terrain;
-    std::vector<std::vector<int>> decorations;
-    std::vector<std::vector<int>> spikes;
-    int width = 0;
-    int height = 0;
-    float tileSize = 16.0f;
-    std::vector<Tileset> tilesets;  // 图块集列表
+    std::string backgroundImagePath; // 背景图片路径
+    
+    // 后景图片
+    std::vector<ParallaxBackground> backgrounds;
 };
 
 // 加载地图数据
 bool load_tilemap(const char* levelName, Tilemap* tilemap);
 
 // 检查某个位置是否有地形
-bool is_solid(const Tilemap* tilemap, float x, float y);
+//bool is_solid(const Tilemap* tilemap, float x, float y);
 
 // 检查某个位置是否有尖刺
-bool is_spike(const Tilemap* tilemap, float x, float y);
+//bool is_spike(const Tilemap* tilemap, float x, float y);
 
 // 渲染地图
-void render_tilemap(const Tilemap* tilemap); 
+void render_tilemap(const Tilemap* tilemap);
+
+// 更新后景图片位置
+void update_backgrounds(Tilemap* tilemap, float playerX, float playerDeltaX); 

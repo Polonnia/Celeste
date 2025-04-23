@@ -9,11 +9,11 @@ int main() {
     int screenWidth = GetSystemMetrics(SM_CXSCREEN);
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
     
-    // Calculate window size (80% of screen size)
-    int windowWidth = screenWidth * 0.8;
-    int windowHeight = screenHeight * 0.8;
+    // Set window size to 1000x600
+    int windowWidth = 1280;
+    int windowHeight = 768;
     
-    // Center the window
+    // Calculate window position to center it on screen
     int windowX = (screenWidth - windowWidth) / 2;
     int windowY = (screenHeight - windowHeight) / 2;
     

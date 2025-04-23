@@ -30,14 +30,18 @@ public:
     float getScale() const;
     void setScale(float newScale);
 
-public: // Making these public temporarily to fix compilation
+    // 将position改为public
     Vec2 position;
+
+private:
     Vec2 target;
     float width;
     float height;
     float scale;
     float rotation;
     bool isDirty;
+    
+    void updateTransform();
 };
 
 // 更新相机位置

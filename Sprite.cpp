@@ -5,7 +5,7 @@
 Sprite::Sprite() : image(nullptr), width(0), height(0), 
                   frameWidth(0), frameHeight(0), frameCount(0),
                   currentFrame(0), frameTime(0.1f), elapsedTime(0),
-                  spriteID(SPRITE_WHITE) {
+                  spriteID(SpriteID::SPRITE_WHITE) {
 }
 
 Sprite::~Sprite() {
@@ -19,9 +19,9 @@ bool Sprite::load(SpriteID id) {
     spriteID = id;
     SpriteData spriteData = get_sprite(id);
     
-    // 使用 easyxpng.h 中的函数加载 PNG 图片
+    // 使用 easyxpng.h 中的函数加载 PNG 图片，保持原始尺寸
     image = new IMAGE;
-    loadimage(image, _T("assets/textures/TEXTURE_ATLAS.png"), 0, 0, true);
+    loadimage(image, _T("assets/textures/TEXTURE_ATLAS.png"), spriteData.size.x, spriteData.size.y, true);
     
     // 检查图片是否成功加载
     if (image->getwidth() == 0 || image->getheight() == 0) {
@@ -31,8 +31,8 @@ bool Sprite::load(SpriteID id) {
     }
 
     // 获取图片尺寸
-    width = image->getwidth();
-    height = image->getheight();
+    width = spriteData.size.x;
+    height = spriteData.size.y;
 
     // 设置帧尺寸
     frameWidth = spriteData.size.x;

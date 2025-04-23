@@ -24,6 +24,8 @@ public:
     const std::vector<Platform>& getPlatforms() const { return platforms; }
     const Camera* getCamera() const { return camera; }
     Camera* getCamera() { return camera; }
+    Tilemap* getTilemap() { return &tilemap; }
+    const Tilemap* getTilemap() const { return &tilemap; }
 
 private:
     Tilemap tilemap;
@@ -31,5 +33,5 @@ private:
     std::vector<Platform> platforms;
     bool isLoaded;
 
-    void loadPlatforms();  // 从tilemap加载平台
+    //void loadPlatforms();  // 从tilemap加载平台
 }; 

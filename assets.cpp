@@ -7,28 +7,28 @@ SpriteData get_sprite(SpriteID spriteID)
 
   switch(spriteID)
   {
-    case SPRITE_WHITE:
+    case SpriteID::SPRITE_WHITE:
     {
       sprite.atlasOffset = {0, 0};
       sprite.size = {1, 1};
       break;
     }
 
-    case SPRITE_DICE:
+    case SpriteID::SPRITE_DICE:
     {
       sprite.atlasOffset = {16, 0};
       sprite.size = {16, 16};
       break;
     }
 
-    case SPRITE_CELESTE:
+    case SpriteID::SPRITE_CELESTE:
     {
       sprite.atlasOffset = {112, 0};
       sprite.size = {17, 20};
       break;
     }
 
-    case SPRITE_CELESTE_RUN:
+    case SpriteID::SPRITE_CELESTE_RUN:
     {
       sprite.atlasOffset = {128, 0};
       sprite.size = {17, 20};
@@ -36,35 +36,35 @@ SpriteData get_sprite(SpriteID spriteID)
       break;
     }
 
-    case SPRITE_CELESTE_JUMP:
+    case SpriteID::SPRITE_CELESTE_JUMP:
     {
       sprite.atlasOffset = {229, 0};
       sprite.size = {17, 20};
       break;
     }
 
-    case SPRITE_SOLID_01:
+    case SpriteID::SPRITE_SOLID_01:
     {
       sprite.atlasOffset = {0, 16};
       sprite.size = {28, 18};
       break;
     }
 
-    case SPRITE_SOLID_02:
+    case SpriteID::SPRITE_SOLID_02:
     {
       sprite.atlasOffset = {32, 16};
       sprite.size = {16, 13};
       break;
     }
 
-    case SPRITE_BUTTON_PLAY:
+    case SpriteID::SPRITE_BUTTON_PLAY:
     {
       sprite.atlasOffset = {80, 0};
       sprite.size = {32, 16};
       break;
     }
 
-    case SPRITE_BUTTON_SAVE:
+    case SpriteID::SPRITE_BUTTON_SAVE:
     {
       sprite.atlasOffset = {80, 16};
       sprite.size = {32, 16};

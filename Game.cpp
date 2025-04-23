@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Input.h"
+#include "Tilemap.h"
 
 Game::Game()
     : currentLevel(nullptr)
@@ -32,8 +33,20 @@ void Game::handleInput()
 void Game::update(float dt)
 {
     if (player && currentLevel) {
+        // 保存玩家上一帧的位置
+        float prevX = player->getPosition().x;
+        
+        // 更新玩家和关卡
         player->update(currentLevel, dt);
         currentLevel->update(dt);
+        
+        // 计算玩家移动距离
+        float deltaX = player->getPosition().x - prevX;
+        
+        // 更新后景图片位置
+        if (currentLevel->getTilemap()) {
+            update_backgrounds(currentLevel->getTilemap(), player->getPosition().x, deltaX);
+        }
     }
 }
 

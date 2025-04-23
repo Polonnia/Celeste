@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "render.h"
 #include <cmath>
 
 // 声明数学函数
@@ -78,35 +79,29 @@ float Camera::getZoom() const
 
 void Camera::applyTransform()
 {
-    if (!isDirty) return;
-
-    // 计算相机的最终位置（考虑目标位置）
-    Vec2 finalPos = position;
+    updateTransform();
     
-    // 如果有目标，进行插值
-    if (target.x != position.x || target.y != position.y)
-    {
-        const float smoothSpeed = 5.0f;
-        float dt = 1.0f / 60.0f; // 假设60FPS
-        finalPos.x += (target.x - position.x) * smoothSpeed * dt;
-        finalPos.y += (target.y - position.y) * smoothSpeed * dt;
-        position = finalPos;
-    }
-
-    // 更新变换矩阵
+    // 设置相机变换
     float transform[6];
     get_camera_transform(this, transform);
     
-    isDirty = false;
+    // 应用变换到渲染系统
+    set_camera_transform(this);
 }
 
 void Camera::resetTransform()
 {
-    position = Vec2(0, 0);
-    target = Vec2(0, 0);
-    scale = 1.0f;
-    rotation = 0.0f;
-    isDirty = true;
+    // 重置相机变换
+    reset_camera_transform();
+}
+
+void Camera::updateTransform()
+{
+    if (!isDirty) return;
+    
+    // 更新相机位置，使其跟随目标
+    position = target;
+    isDirty = false;
 }
 
 void Camera::update(float dt)
@@ -133,7 +128,7 @@ void get_camera_transform(const Camera* camera, float* transform)
     float s = static_cast<float>(sin(camera->getRotation()));
     float zoom = camera->getScale();
     
-    // 构建2D变换矩阵
+    // 计算2D变换矩阵
     transform[0] = c * zoom;  // m11
     transform[1] = -s * zoom; // m12
     transform[2] = -camera->position.x * transform[0] - camera->position.y * transform[1];  // tx

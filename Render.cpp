@@ -11,106 +11,13 @@ IMAGE* textureAtlas = nullptr;
 // 存储已加载的图块集图片
 std::map<std::string, IMAGE*> loadedTilesets;
 
+// 存储已加载的背景图片
+std::map<std::string, IMAGE*> loadedBackgrounds;
+
 // 相机变换矩阵
 float cameraScale = 1.0f;
 float cameraOffsetX = 0.0f;
 float cameraOffsetY = 0.0f;
-
-void draw_tile(const Tilemap* tilemap, int tileID, float x, float y)
-{
-    if (tileID == 0) return; // 空图块
-
-    std::cout << "Drawing tile ID: " << tileID << " at position (" << x << ", " << y << ")" << std::endl;
-
-    // 应用相机变换
-    x = (x - cameraOffsetX) * cameraScale;
-    y = (y - cameraOffsetY) * cameraScale;
-
-    // 找到对应的图块集
-    const Tileset* tileset = nullptr;
-    for (const auto& ts : tilemap->tilesets)
-    {
-        std::cout << "Checking tileset with firstgid: " << ts.firstgid << std::endl;
-        if (tileID >= ts.firstgid)
-        {
-            // 找到最后一个匹配的tileset
-            tileset = &ts;
-        }
-    }
-
-    if (!tileset) {
-        std::cout << "No matching tileset found for tileID: " << tileID << std::endl;
-        return;
-    }
-
-    // 确保图块集图片已加载
-    if (loadedTilesets.find(tileset->imagePath) == loadedTilesets.end())
-    {
-        IMAGE* image = new IMAGE;
-        std::string fullPath = tileset->imagePath; // 直接使用完整路径
-        std::cout << "Loading tileset image from: " << fullPath << std::endl;
-        
-        TCHAR imagePath[MAX_PATH];
-#ifdef UNICODE
-        MultiByteToWideChar(CP_UTF8, 0, fullPath.c_str(), -1, imagePath, MAX_PATH);
-#else
-        strcpy_s(imagePath, fullPath.c_str());
-#endif
-        
-        // 尝试加载图片
-        bool loadSuccess = false;
-        try {
-            loadimage(image, imagePath, 0, 0, true);
-            if (image->getwidth() > 0 && image->getheight() > 0) {
-                loadSuccess = true;
-            }
-        } catch (...) {
-            std::cout << "Exception while loading image: " << fullPath << std::endl;
-        }
-        
-        // 检查图片是否加载成功
-        if (loadSuccess)
-        {
-            std::cout << "Successfully loaded image with dimensions: " << image->getwidth() << "x" << image->getheight() << std::endl;
-            loadedTilesets[tileset->imagePath] = image;
-        }
-        else
-        {
-            std::cout << "Failed to load tileset image: " << fullPath << std::endl;
-            delete image;
-            return;
-        }
-    }
-
-    // 计算图块在图块集中的位置
-    int localID = tileID - tileset->firstgid;
-    
-    // 使用默认的tileWidth和tileHeight
-    int tileWidth = tileset->tileWidth;
-    int tileHeight = tileset->tileHeight;
-    
-    // 如果tileWidth或tileHeight为0，使用默认值
-    if (tileWidth <= 0) tileWidth = 8; // 使用地图的默认tilewidth
-    if (tileHeight <= 0) tileHeight = 8; // 使用地图的默认tileheight
-    
-    // 假设每个tileset有10列
-    int columns = 10;
-    if (tileset->columns > 0) columns = tileset->columns;
-    
-    int tileX = (localID % columns) * tileWidth;
-    int tileY = (localID / columns) * tileHeight;
-
-    std::cout << "Rendering tile from position (" << tileX << ", " << tileY << ") in tileset" << std::endl;
-
-    // 计算缩放后的尺寸
-    int scaledWidth = (int)(tileWidth * cameraScale);
-    int scaledHeight = (int)(tileHeight * cameraScale);
-
-    // 渲染图块
-    SetWorkingImage(NULL);
-    putimagePng((int)x, (int)y, scaledWidth, scaledHeight, 
-                loadedTilesets[tileset->imagePath], tileX, tileY);
-}
 
 void set_camera_transform(const Camera* camera)
 {
@@ -130,4 +37,72 @@ void reset_camera_transform()
     cameraScale = 1.0f;
     cameraOffsetX = 0.0f;
     cameraOffsetY = 0.0f;
+}
+
+void render_backgrounds(const Tilemap* tilemap)
+{
+    // 渲染后景层
+    for (const auto& bg : tilemap->backgrounds)
+    {
+        IMAGE bgImage;
+        // 1. 将 std::string 转换为 TCHAR 字符串
+        TCHAR imagePath[MAX_PATH];
+        size_t converted = 0;
+        mbstowcs_s(&converted, imagePath, bg.imagePath.c_str(), _TRUNCATE);
+
+        try {
+            // 2. 加载图片
+            loadimage(&bgImage, imagePath);
+            
+            // 获取图片尺寸
+            int imageWidth = bgImage.getwidth();
+            int imageHeight = bgImage.getheight();
+            
+            // 计算实际渲染位置（考虑相机位置和视差）
+            float renderX = bg.offsetX - cameraOffsetX * bg.parallaxFactor;
+            
+            // 计算需要重复渲染的次数
+            int screenWidth = 1280; // 假设屏幕宽度为1280
+            int repeatCount = (screenWidth / imageWidth) + 3; // 多渲染一些以确保覆盖
+            
+            // 渲染背景图片
+            for (int i = -1; i < repeatCount; i++) {
+                float currentX = renderX + i * imageWidth;
+                
+                // 只渲染在屏幕范围内的部分
+                if (currentX + imageWidth > 0 && currentX < screenWidth) {
+                    putimagePng((int)currentX, 0, &bgImage);
+                }
+            }
+        }
+        catch (...) {
+            std::cout << "Failed to load background image: " << bg.imagePath << std::endl;
+        }
+    }
+}
+
+void render_main_background(const Tilemap* tilemap)
+{
+    // 渲染主背景
+    IMAGE bgImage;
+    // 1. 把 std::string 转成 TCHAR 宽字符数组
+    TCHAR imagePath[MAX_PATH];
+    size_t converted = 0;
+    mbstowcs_s(&converted, imagePath, tilemap->backgroundImagePath.c_str(), _TRUNCATE);
+
+    // 2. 调用 loadimage
+    loadimage(&bgImage, imagePath);
+    putimagePng(0, 0, &bgImage);
+}
+
+void render_tilemap(const Tilemap* tilemap)
+{
+    // 渲染后景
+    render_backgrounds(tilemap);
+    
+    // 渲染主背景
+    render_main_background(tilemap);
+    
+    // 渲染地形层
+    // ... existing rendering code ...
 } 
