@@ -1,0 +1,157 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+        ".",
+        "assets/levels",
+        "assets/tiles",
+        "assets/tiles/spikes",
+        "assets/maps",
+        "assets"
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "assets/levels/level1..tmj": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 75.33333333333331,
+                "y": 193.83333333333331
+            }
+        },
+        "assets/levels/level1.tmj": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 178,
+                "y": 112
+            }
+        },
+        "assets/levels/level1/spikeCeiling.tsj": {
+            "scaleInDock": 16,
+            "scaleInEditor": 1
+        },
+        "assets/map/level1..tmj": {
+            "scale": 2.2610591900311525,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 142.4111325434004,
+                "y": 36.70845963075229
+            }
+        },
+        "assets/map/level1.tmj": {
+            "scale": 2.268125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 302.0115734362083,
+                "y": 31.74428217139706
+            }
+        },
+        "assets/maps/idle.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "assets/maps/level1.tmj": {
+            "scale": 3,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 367.3333333333333,
+                "y": 263.16666666666663
+            }
+        },
+        "assets/maps/level1_block.tmj": {
+            "scale": 3.17359375,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 159.9133474471961,
+                "y": 89.64600462803406
+            }
+        },
+        "assets/maps/level1_decorations.tmj": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 243.83333333333331,
+                "y": 81.33333333333331
+            }
+        },
+        "assets/maps/madeline.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 11
+        },
+        "assets/tiles/bricks.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/house.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/madeline.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/player_atlas.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "assets/tiles/scaffolds.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/snowTiles.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/snowTiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/snowTiles1.tsj": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/spikes/spikeFloor.tsj": {
+            "scaleInDock": 5.5,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "D:/SCU/Game/Celeste/Celeste/assets/levels",
+    "last.imagePath": "D:/SCU/Game/Celeste/Celeste/assets/sprites/celeste",
+    "map.height": 24,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 40,
+    "openFiles": [
+    ],
+    "project": "未命名.tiled-project",
+    "recentFiles": [
+        "assets/maps/idle.tsj",
+        "assets/maps/madeline.tsj",
+        "assets/tiles/madeline.tsj",
+        "assets/tiles/player_atlas.tsj",
+        "assets/tiles/bricks.tsj",
+        "assets/levels/level1/spikeCeiling.tsj",
+        "assets/tiles/spikes/spikeFloor.tsj",
+        "assets/levels/level1..tmj",
+        "assets/levels/level1.tmj",
+        "assets/tiles/snowTiles1.tsj",
+        "assets/tiles/house.tsj",
+        "assets/maps/level1.tmj"
+    ],
+    "tileset.lastUsedFormat": "json",
+    "tileset.margin": 0,
+    "tileset.spacing": 32,
+    "tileset.tileSize": {
+        "height": 66,
+        "width": 47
+    }
+}

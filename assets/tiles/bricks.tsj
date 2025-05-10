@@ -1,0 +1,14 @@
+{ "columns":6,
+ "image":"bricks.png",
+ "imageheight":120,
+ "imagewidth":48,
+ "margin":0,
+ "name":"bricks",
+ "spacing":0,
+ "tilecount":90,
+ "tiledversion":"1.11.2",
+ "tileheight":8,
+ "tilewidth":8,
+ "type":"tileset",
+ "version":"1.10"
+}

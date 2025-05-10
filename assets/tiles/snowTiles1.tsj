@@ -1,0 +1,14 @@
+{ "columns":25,
+ "image":"snowtiles1.png",
+ "imageheight":96,
+ "imagewidth":200,
+ "margin":0,
+ "name":"snowtiles1",
+ "spacing":0,
+ "tilecount":300,
+ "tiledversion":"1.11.2",
+ "tileheight":8,
+ "tilewidth":8,
+ "type":"tileset",
+ "version":"1.10"
+}

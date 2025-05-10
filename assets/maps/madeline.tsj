@@ -1,0 +1,14 @@
+{ "columns":8,
+ "image":"..\/sprites\/celeste\/run.png",
+ "imageheight":62,
+ "imagewidth":626,
+ "margin":0,
+ "name":"run",
+ "spacing":18,
+ "tilecount":8,
+ "tiledversion":"1.11.2",
+ "tileheight":62,
+ "tilewidth":62,
+ "type":"tileset",
+ "version":"1.10"
+}

@@ -1,0 +1,14 @@
+{ "columns":2,
+ "image":"..\/sprites\/celeste\/idle.png",
+ "imageheight":66,
+ "imagewidth":128,
+ "margin":0,
+ "name":"idle",
+ "spacing":32,
+ "tilecount":2,
+ "tiledversion":"1.11.2",
+ "tileheight":66,
+ "tilewidth":47,
+ "type":"tileset",
+ "version":"1.10"
+}

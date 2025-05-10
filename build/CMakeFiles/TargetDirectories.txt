@@ -1,0 +1,3 @@
+D:/SCU/Game/Celeste/Celeste/build/CMakeFiles/CelesteClone.dir
+D:/SCU/Game/Celeste/Celeste/build/CMakeFiles/ALL_BUILD.dir
+D:/SCU/Game/Celeste/Celeste/build/CMakeFiles/ZERO_CHECK.dir

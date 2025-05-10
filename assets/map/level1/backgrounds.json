@@ -1,0 +1,16 @@
+{
+    "backgrounds": [
+        {
+            "image": "bg1.png",
+            "parallaxFactor": 0.0,
+            "offsetX": 0.0,
+            "posY": 100.0
+        },
+        {
+            "image": "bg2.png",
+            "parallaxFactor": 0.0,
+            "offsetX": 0.0,
+            "posY": 200.0
+        }
+    ]
+} 

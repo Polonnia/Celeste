@@ -1,0 +1,14 @@
+{ "columns":256,
+ "image":"..\/player\/player_atlas.png",
+ "imageheight":1112,
+ "imagewidth":1024,
+ "margin":0,
+ "name":"player_atlas",
+ "spacing":0,
+ "tilecount":71168,
+ "tiledversion":"1.11.2",
+ "tileheight":4,
+ "tilewidth":4,
+ "type":"tileset",
+ "version":"1.10"
+}

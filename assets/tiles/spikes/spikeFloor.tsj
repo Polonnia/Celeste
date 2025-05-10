@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"spikeFloor.png",
+ "imageheight":8,
+ "imagewidth":8,
+ "margin":0,
+ "name":"spikeFloor",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.11.2",
+ "tileheight":8,
+ "tilewidth":8,
+ "type":"tileset",
+ "version":"1.10"
+}
