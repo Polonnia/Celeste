@@ -1,0 +1,14 @@
+{ "columns":2,
+ "image":"..\/sprites\/celeste\/jump_rising.png",
+ "imageheight":66,
+ "imagewidth":120,
+ "margin":0,
+ "name":"jump_rising",
+ "spacing":12,
+ "tilecount":2,
+ "tiledversion":"1.11.2",
+ "tileheight":66,
+ "tilewidth":48,
+ "type":"tileset",
+ "version":"1.10"
+}

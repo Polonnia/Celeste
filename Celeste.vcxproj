@@ -27,10 +27,11 @@
     <ClCompile Include="src\Platform.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Render.cpp" />
-    <ClCompile Include="src\animation\Sprite.cpp" />
-    <ClCompile Include="src\animation\Assets.cpp" />
+    <ClCompile Include="src\visuals\Sprite.cpp" />
+    <ClCompile Include="src\visuals\Assets.cpp" />
     <ClCompile Include="src\Tilemap.cpp" />
     <ClCompile Include="src\utils\easyxpng.cpp" />
+    <ClCompile Include="src\visuals\effects\DashEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\assets.h" />
@@ -42,10 +43,11 @@
     <ClInclude Include="src\Platform.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Render.h" />
-    <ClInclude Include="src\animation\Sprite.h" />
-    <ClInclude Include="src\animation\Assets.h" />
+    <ClInclude Include="src\visuals\Sprite.h" />
+    <ClInclude Include="src\visuals\Assets.h" />
     <ClInclude Include="src\Tilemap.h" />
     <ClInclude Include="src\utils\easyxpng.h" />
+    <ClInclude Include="src\visuals\effects\DashEffect.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

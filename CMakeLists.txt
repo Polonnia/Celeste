@@ -18,6 +18,10 @@ set(SOURCES
     src/win32_platform.cpp
     src/animation/Assets.cpp
     src/animation/AnimationState.cpp
+    src/Player.cpp
+    src/Level.cpp
+    src/Input.cpp
+    src/visuals/effects/DashEffect.cpp
 )
 
 # 添加头文件目录

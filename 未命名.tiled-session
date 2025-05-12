@@ -61,8 +61,8 @@
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 367.3333333333333,
-                "y": 263.16666666666663
+                "x": -69.66666666666666,
+                "y": 51.999999999999986
             }
         },
         "assets/maps/level1_block.tmj": {
@@ -149,9 +149,9 @@
     ],
     "tileset.lastUsedFormat": "json",
     "tileset.margin": 0,
-    "tileset.spacing": 32,
+    "tileset.spacing": 12,
     "tileset.tileSize": {
         "height": 66,
-        "width": 47
+        "width": 48
     }
 }
