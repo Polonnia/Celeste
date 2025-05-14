@@ -38,19 +38,19 @@
             "scaleInEditor": 1
         },
         "assets/map/level1..tmj": {
-            "scale": 2.2610591900311525,
+            "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 142.4111325434004,
-                "y": 36.70845963075229
+                "x": 206.16666666666663,
+                "y": 93.49999999999997
             }
         },
         "assets/map/level1.tmj": {
-            "scale": 2.268125,
+            "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 302.0115734362083,
-                "y": 31.74428217139706
+                "x": 276.72727272727275,
+                "y": 79.18181818181819
             }
         },
         "assets/maps/idle.tsj": {
@@ -61,8 +61,8 @@
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": -69.66666666666666,
-                "y": 51.999999999999986
+                "x": 135.5,
+                "y": 106.16666666666666
             }
         },
         "assets/maps/level1_block.tmj": {
@@ -84,6 +84,22 @@
         "assets/maps/madeline.tsj": {
             "scaleInDock": 1,
             "scaleInEditor": 11
+        },
+        "assets/maps/spring.tmj": {
+            "scale": 16,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 17.03125,
+                "y": 15.65625
+            }
+        },
+        "assets/maps/spring_long.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/maps/wall_climb.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
         },
         "assets/tiles/bricks.tsj": {
             "scaleInDock": 3,
@@ -123,17 +139,19 @@
         }
     },
     "last.exportedFilePath": "D:/SCU/Game/Celeste/Celeste/assets/levels",
-    "last.imagePath": "D:/SCU/Game/Celeste/Celeste/assets/sprites/celeste",
-    "map.height": 24,
+    "last.imagePath": "D:/SCU/Game/Celeste/Celeste/assets/sprites/props",
+    "map.height": 5,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "json",
-    "map.tileHeight": 8,
-    "map.tileWidth": 8,
-    "map.width": 40,
+    "map.tileHeight": 9,
+    "map.tileWidth": 12,
+    "map.width": 5,
     "openFiles": [
     ],
     "project": "未命名.tiled-project",
     "recentFiles": [
+        "assets/maps/wall_climb.tsj",
+        "assets/maps/spring_long.tsj",
         "assets/maps/idle.tsj",
         "assets/maps/madeline.tsj",
         "assets/tiles/madeline.tsj",
@@ -143,15 +161,13 @@
         "assets/tiles/spikes/spikeFloor.tsj",
         "assets/levels/level1..tmj",
         "assets/levels/level1.tmj",
-        "assets/tiles/snowTiles1.tsj",
-        "assets/tiles/house.tsj",
-        "assets/maps/level1.tmj"
+        "assets/tiles/snowTiles1.tsj"
     ],
     "tileset.lastUsedFormat": "json",
     "tileset.margin": 0,
-    "tileset.spacing": 12,
+    "tileset.spacing": 0,
     "tileset.tileSize": {
-        "height": 66,
-        "width": 48
+        "height": 9,
+        "width": 12
     }
 }

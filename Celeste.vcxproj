@@ -27,6 +27,7 @@
     <ClCompile Include="src\Platform.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Render.cpp" />
+    <ClCompile Include="src\visuals\effects\JumpDustEffect.cpp" />
     <ClCompile Include="src\visuals\Sprite.cpp" />
     <ClCompile Include="src\visuals\Assets.cpp" />
     <ClCompile Include="src\Tilemap.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="src\Platform.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Render.h" />
+    <ClInclude Include="src\visuals\effects\JumpDustEffect.h" />
     <ClInclude Include="src\visuals\Sprite.h" />
     <ClInclude Include="src\visuals\Assets.h" />
     <ClInclude Include="src\Tilemap.h" />

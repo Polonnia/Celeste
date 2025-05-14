@@ -1,5 +1,5 @@
 { "columns":2,
- "image":"..\/sprites\/celeste\/idle.png",
+ "image":"..\/sprites\/player\/idle.png",
  "imageheight":66,
  "imagewidth":128,
  "margin":0,

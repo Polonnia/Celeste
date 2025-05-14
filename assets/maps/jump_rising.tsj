@@ -1,5 +1,5 @@
 { "columns":2,
- "image":"..\/sprites\/celeste\/jump_rising.png",
+ "image":"..\/sprites\/player\/jump_rising.png",
  "imageheight":66,
  "imagewidth":120,
  "margin":0,
