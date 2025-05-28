@@ -1,0 +1,14 @@
+{ "columns":5,
+ "image":"..\/sprites\/player\/wall_climb.png",
+ "imageheight":62,
+ "imagewidth":195,
+ "margin":0,
+ "name":"wall_climb",
+ "spacing":0,
+ "tilecount":5,
+ "tiledversion":"1.11.2",
+ "tileheight":62,
+ "tilewidth":39,
+ "type":"tileset",
+ "version":"1.10"
+}

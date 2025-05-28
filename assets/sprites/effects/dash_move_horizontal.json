@@ -1,0 +1,14 @@
+{
+  "frames": {
+    "dashmoveeff-0.png": {
+      "spriteOffset": "{-80,10}",
+      "spriteSize": "{62,46}",
+      "textureRect": "{{0,9},{75,17}}"
+    },
+    "dashmoveeff-1.png": {
+      "spriteOffset": "{-40,10}",
+      "spriteSize": "{70,18}",
+      "textureRect": "{{0,1},{71,6}}"
+    }
+  }
+} 

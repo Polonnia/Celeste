@@ -1,0 +1,79 @@
+{
+  "frames": {
+    "Respawn_00-0.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{222,214}",
+      "textureRect": "{{217,481},{222,214}}"
+    },
+    "Respawn_00-1.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{222,218}",
+      "textureRect": "{{1,697},{222,218}}"
+    },
+    "Respawn_00-2.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{222,218}",
+      "textureRect": "{{225,697},{222,218}}"
+    },
+    "Respawn_00-3.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{226,222}",
+      "textureRect": "{{225,917},{226,222}}"
+    },
+    "Respawn_00-4.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{226,222}",
+      "textureRect": "{{1,1141},{226,222}}"
+    },
+    "Respawn_00-5.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{226,222}",
+      "textureRect": "{{229,1141},{226,222}}"
+    },
+    "Respawn_00-6.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{222,218}",
+      "textureRect": "{{1,917},{222,218}}"
+    },
+    "Respawn_00-7.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{214,210}",
+      "textureRect": "{{1,481},{214,210}}"
+    },
+    "Respawn_00-8.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{202,198}",
+      "textureRect": "{{189,281},{202,198}}"
+    },
+    "Respawn_00-9.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{186,182}",
+      "textureRect": "{{1,273},{186,182}}"
+    },
+    "Respawn_00-10.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{170,166}",
+      "textureRect": "{{305,113},{170,166}}"
+    },
+    "Respawn_00-11.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{158,158}",
+      "textureRect": "{{145,113},{158,158}}"
+    },
+    "Respawn_00-12.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{142,142}",
+      "textureRect": "{{1,65},{142,142}}"
+    },
+    "Respawn_00-13.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{110,110}",
+      "textureRect": "{{281,1},{110,110}}"
+    },
+    "Respawn_00-14.png": {
+      "spriteOffset": "{0,0}",
+      "spriteSize": "{86,86}",
+      "textureRect": "{{193,1},{86,86}}"
+    }
+  }
+}

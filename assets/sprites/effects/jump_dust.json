@@ -1,0 +1,100 @@
+{
+  "frames": {
+    "floorjumpash-0.png": {
+      "aliases": [],
+      "spriteOffset": "{2,53}",
+      "spriteSize": "{46,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,1},{46,26}}",
+      "textureRotated": false
+    },
+    "floorjumpash-1.png": {
+      "aliases": [],
+      "spriteOffset": "{2,55}",
+      "spriteSize": "{46,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,57},{46,22}}",
+      "textureRotated": false
+    },
+    "floorjumpash-2.png": {
+      "aliases": [],
+      "spriteOffset": "{2,57}",
+      "spriteSize": "{46,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,29},{46,26}}",
+      "textureRotated": false
+    },
+    "floorjumpash-3.png": {
+      "aliases": [],
+      "spriteOffset": "{4,57}",
+      "spriteSize": "{42,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,129},{42,26}}",
+      "textureRotated": false
+    },
+    "floorjumpash-4.png": {
+      "aliases": [],
+      "spriteOffset": "{2,59}",
+      "spriteSize": "{46,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,81},{46,22}}",
+      "textureRotated": false
+    },
+    "floorjumpash-5.png": {
+      "aliases": [],
+      "spriteOffset": "{2,59}",
+      "spriteSize": "{46,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,105},{46,22}}",
+      "textureRotated": false
+    },
+    "floorjumpash-6.png": {
+      "aliases": [],
+      "spriteOffset": "{4,63}",
+      "spriteSize": "{42,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,157},{42,22}}",
+      "textureRotated": false
+    },
+    "floorjumpash-7.png": {
+      "aliases": [],
+      "spriteOffset": "{4,61}",
+      "spriteSize": "{42,18}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{45,129},{42,18}}",
+      "textureRotated": true
+    },
+    "floorjumpash-8.png": {
+      "aliases": [],
+      "spriteOffset": "{2,63}",
+      "spriteSize": "{38,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,181},{38,22}}",
+      "textureRotated": false
+    },
+    "floorjumpash-9.png": {
+      "aliases": [],
+      "spriteOffset": "{4,65}",
+      "spriteSize": "{34,18}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{45,173},{34,18}}",
+      "textureRotated": true
+    },
+    "floorjumpash-10.png": {
+      "aliases": [],
+      "spriteOffset": "{6,71}",
+      "spriteSize": "{38,14}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{49,1},{38,14}}",
+      "textureRotated": true
+    },
+    "floorjumpash-11.png": {
+      "aliases": [],
+      "spriteOffset": "{16,67}",
+      "spriteSize": "{18,14}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{49,41},{18,14}}",
+      "textureRotated": true
+    }
+  }
+}

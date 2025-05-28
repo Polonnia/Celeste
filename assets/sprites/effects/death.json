@@ -1,0 +1,89 @@
+{
+  "frames": {
+    "death-7.png": {
+      "spriteOffset": "{-53,15}",
+      "spriteSize": "{54,50}",
+      "textureRect": "{{453,1},{54,50}}"
+    },
+    "death-8.png": {
+      "spriteOffset": "{-57,33}",
+      "spriteSize": "{14,14}",
+      "textureRect": "{{205,665},{14,14}}"
+    },
+    "death-9.png": {
+      "spriteOffset": "{-55,17}",
+      "spriteSize": "{66,66}",
+      "textureRect": "{{381,685},{66,66}}"
+    },
+    "death-10.png": {
+      "spriteOffset": "{-55,1}",
+      "spriteSize": "{106,102}",
+      "textureRect": "{{401,433},{106,102}}"
+    },
+    "death-11.png": {
+      "spriteOffset": "{-59,-1}",
+      "spriteSize": "{138,134}",
+      "textureRect": "{{353,761},{138,134}}"
+    },
+    "death-12.png": {
+      "spriteOffset": "{-57,-3}",
+      "spriteSize": "{142,146}",
+      "textureRect": "{{189,905},{142,146}}"
+    },
+    "death-13.png": {
+      "spriteOffset": "{-59,-5}",
+      "spriteSize": "{146,142}",
+      "textureRect": "{{205,761},{146,142}}"
+    },
+    "death-14.png": {
+      "spriteOffset": "{-61,-5}",
+      "spriteSize": "{142,142}",
+      "textureRect": "{{337,905},{142,142}}"
+    },
+    "death-15.png": {
+      "spriteOffset": "{-61,-13}",
+      "spriteSize": "{158,158}",
+      "textureRect": "{{221,601},{158,158}}"
+    },
+    "death-16.png": {
+      "spriteOffset": "{-63,-17}",
+      "spriteSize": "{170,166}",
+      "textureRect": "{{229,433},{170,166}}"
+    },
+    "death-17.png": {
+      "spriteOffset": "{-63,-25}",
+      "spriteSize": "{186,182}",
+      "textureRect": "{{1,865},{186,182}}"
+    },
+    "death-18.png": {
+      "spriteOffset": "{-63,-33}",
+      "spriteSize": "{202,198}",
+      "textureRect": "{{1,665},{202,198}}"
+    },
+    "death-19.png": {
+      "spriteOffset": "{-61,-41}",
+      "spriteSize": "{214,210}",
+      "textureRect": "{{229,221},{214,210}}"
+    },
+    "death-20.png": {
+      "spriteOffset": "{-61,-45}",
+      "spriteSize": "{222,218}",
+      "textureRect": "{{229,1},{222,218}}"
+    },
+    "death-21.png": {
+      "spriteOffset": "{-63,-47}",
+      "spriteSize": "{226,222}",
+      "textureRect": "{{1,1},{226,222}}"
+    },
+    "death-22.png": {
+      "spriteOffset": "{-63,-47}",
+      "spriteSize": "{226,222}",
+      "textureRect": "{{1,225},{226,222}}"
+    },
+    "death-23.png": {
+      "spriteOffset": "{-63,-47}",
+      "spriteSize": "{218,214}",
+      "textureRect": "{{1,449},{218,214}}"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "frames": {
+    "dashmoveupeff-0.png": {
+      "aliases": [],
+      "spriteOffset": "{2,-8}",
+      "spriteSize": "{54,42}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,145},{54,42}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-1.png": {
+      "aliases": [],
+      "spriteOffset": "{14,-8}",
+      "spriteSize": "{54,58}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{153,65},{54,58}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-2.png": {
+      "aliases": [],
+      "spriteOffset": "{18,0}",
+      "spriteSize": "{46,42}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{57,145},{46,42}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-3.png": {
+      "aliases": [],
+      "spriteOffset": "{14,-2}",
+      "spriteSize": "{54,54}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{153,125},{54,54}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-4.png": {
+      "aliases": [],
+      "spriteOffset": "{14,-2}",
+      "spriteSize": "{46,46}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{105,141},{46,46}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-5.png": {
+      "aliases": [],
+      "spriteOffset": "{14,-2}",
+      "spriteSize": "{62,62}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{145,1},{62,62}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-6.png": {
+      "aliases": [],
+      "spriteOffset": "{16,0}",
+      "spriteSize": "{66,66}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{73,73},{66,66}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-7.png": {
+      "aliases": [],
+      "spriteOffset": "{14,-2}",
+      "spriteSize": "{70,70}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,1},{70,70}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-8.png": {
+      "aliases": [],
+      "spriteOffset": "{18,2}",
+      "spriteSize": "{70,70}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,73},{70,70}}",
+      "textureRotated": false
+    },
+    "dashmoveupeff-9.png": {
+      "aliases": [],
+      "spriteOffset": "{18,2}",
+      "spriteSize": "{70,70}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{73,1},{70,70}}",
+      "textureRotated": false
+    }
+  },
+  "metadata": {
+    "format": 3,
+    "pixelFormat": "RGBA8888",
+    "premultiplyAlpha": false,
+    "realTextureFileName": "dashmoveupeff_00.png",
+    "size": "{208,188}",
+    "textureFileName": "dashmoveupeff_00.png"
+  }
+} 

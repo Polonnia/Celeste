@@ -1,0 +1,92 @@
+{
+  "frames": {
+    "floorlandingash-4.png": {
+      "aliases": [],
+      "spriteOffset": "{-30,-6}",
+      "spriteSize": "{58,30}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,33},{58,30}}",
+      "textureRotated": false
+    },
+    "floorlandingash-5.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,-8}",
+      "spriteSize": "{54,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,149},{54,26}}",
+      "textureRotated": false
+    },
+    "floorlandingash-6.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,-4}",
+      "spriteSize": "{54,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,177},{54,26}}",
+      "textureRotated": false
+    },
+    "floorlandingash-7.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,-4}",
+      "spriteSize": "{54,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,205},{54,26}}",
+      "textureRotated": false
+    },
+    "floorlandingash-8.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,-2}",
+      "spriteSize": "{46,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,289},{46,22}}",
+      "textureRotated": false
+    },
+    "floorlandingash-9.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,0}",
+      "spriteSize": "{46,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,233},{46,26}}",
+      "textureRotated": false
+    },
+    "floorlandingash-10.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,0}",
+      "spriteSize": "{46,26}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,261},{46,26}}",
+      "textureRotated": false
+    },
+    "floorlandingash-11.png": {
+      "aliases": [],
+      "spriteOffset": "{-32,6}",
+      "spriteSize": "{38,22}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{1,313},{38,22}}",
+      "textureRotated": false
+    },
+    "floorlandingash-12.png": {
+      "aliases": [],
+      "spriteOffset": "{-24,8}",
+      "spriteSize": "{22,10}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{49,233},{22,10}}",
+      "textureRotated": true
+    },
+    "floorlandingash-13.png": {
+      "aliases": [],
+      "spriteOffset": "{-34,12}",
+      "spriteSize": "{10,10}",
+      "spriteSourceSize": "{128,128}",
+      "textureRect": "{{49,257},{10,10}}",
+      "textureRotated": false
+    }
+  },
+  "metadata": {
+    "format": 3,
+    "pixelFormat": "RGBA8888",
+    "premultiplyAlpha": false,
+    "realTextureFileName": "floorlandingash_00.png",
+    "size": "{60,336}",
+    "textureFileName": "floorlandingash_00.png"
+  }
+}

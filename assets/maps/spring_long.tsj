@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"..\/sprites\/props\/spring_long.png",
+ "imageheight":9,
+ "imagewidth":12,
+ "margin":0,
+ "name":"spring_long",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.11.2",
+ "tileheight":9,
+ "tilewidth":12,
+ "type":"tileset",
+ "version":"1.10"
+}
